@@ -1,219 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>22100196 최혜선 과제</title>
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Calculator app</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="main_wrap">
+      <div id="explain">
+        <h1>두 양수를 입력 후 원하는 버튼을 눌러주세요.</h1>
+        <p>나누기의 경우 소수점은 제외됩니다.</p>
+      </div>
+      <div id="inputs">
+        <input type="number" id="input1" placeholder="예) 2" required />
+        <input type="number" id="input2" placeholder="예) 4" required />
+      </div>
+      <div id="buttons">
+        <button class="plus_btn">더하기</button>
+        <button class="minus_btn">빼기</button>
+        <button class="multi_btn">곱하기</button>
+        <button class="devi_btn">나누기</button>
+      </div>
+      <div id="results">
+        <h4 class="result_title">결과값은</h4>
+        <p><span class="result_value"></span> 입니다!</p>
+      </div>
+      <footer>Simple Calculator app by Ryan</footer>
+    </div>
+    <script>
+      // 인풋
+      const input1 = document.getElementById("input1");
+      const input2 = document.getElementById("input2");
+      // 버튼
+      const plusBtn = document.querySelector(".plus_btn");
+      const minusBtn = document.querySelector(".minus_btn");
+      const multiBtn = document.querySelector(".multi_btn");
+      const deviBtn = document.querySelector(".devi_btn");
+      // 결과값
+      const results = document.getElementById("results");
+      const resultValue = document.querySelector(".result_value");
 
-            button,
-            input {
-                border-radius: 8px;
-                border: none;
-                cursor: pointer;
-            }
+      // 이벤트 핸들 함수
 
-            input {
-                background-color: rgb(255, 255, 151);
-                width: 120px;
-                height: 80px;
-                font-size: 24px;
-                padding: 8px 12px;
-                margin: 8px 12px;
-                text-align: center;
-            }
+      function displayResults() {
+        setTimeout(() => {
+          results.style.display = "flex";
+        }, 1200);
+      }
 
-            button {
-                background-color: rgb(168, 168, 0);
-                width: 160px;
-                height: 80px;
-                font-size: 24px;
-                padding: 8px 12px;
-                margin: 8px 12px;
-                color: #fff;
-                transition: 300ms transform;
-            }
+      function painting(value) {
+        resultValue.innerText = value;
+      }
+      function handlePlusBtn() {
+        results.style.display = "none";
+        const input1Value = Number(input1.value);
+        const input2Value = Number(input2.value);
+        console.log(input1Value, input2Value);
+        if (input1Value !== 0 && input2Value !== 0) {
+          const plusResult = input1Value + input2Value;
+          painting(plusResult);
+          displayResults();
+        } else {
+          alert("숫자를 잘 넣었는지 확인해보세요!");
+        }
+      }
 
-            button:hover {
-                transform: scale(1.05);
-            }
+      function handleMinusBtn() {
+        results.style.display = "none";
+        const input1Value = Number(input1.value);
+        const input2Value = Number(input2.value);
 
-            footer {
-                position: fixed;
-                bottom: 2rem;
-                cursor: default;
-            }
+        if (input1Value !== 0 && input2Value !== 0) {
+          const minusResult = input1Value - input2Value;
+          painting(minusResult);
+          displayResults();
+        } else {
+          alert("숫자를 잘 넣었는지 확인해보세요!");
+        }
+      }
 
-            #main_wrap {
-                width: 100%;
-                height: 100vh;
-                background-color: rgb(218, 218, 218);
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
+      function handleMultiBtn() {
+        results.style.display = "none";
+        const input1Value = Number(input1.value);
+        const input2Value = Number(input2.value);
 
-            #explain h1 {
-                color: rgb(168, 168, 0);
-                margin-top: 120px;
-            }
+        if (input1Value !== 0 && input2Value !== 0) {
+          const multiResult = input1Value * input2Value;
+          painting(multiResult);
+          displayResults();
+        } else {
+          alert("숫자를 잘 넣었는지 확인해보세요!");
+        }
+      }
 
-            #explain p {
-                color: rgb(168, 62, 0);
-                margin-top: 20px;
-            }
+      function handleDeviBtn() {
+        results.style.display = "none";
+        const input1Value = Number(input1.value);
+        const input2Value = Number(input2.value);
 
-            #inputs {
-                margin: 80px 0;
-            }
+        if (input1Value !== 0 && input2Value !== 0) {
+          const deviResult = Math.floor(input1Value / input2Value);
+          painting(deviResult);
+          displayResults();
+        } else {
+          alert("숫자를 잘 넣었는지 확인해보세요!");
+        }
+      }
 
-            #buttons {
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            #results {
-                background-color: #fff;
-                margin-top: 40px;
-                width: 400px;
-                height: 250px;
-                display: none;
-                flex-direction: column;
-                align-items: center;
-                font-size: 24px;
-                border-radius: 8px;
-                box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
-            }
-
-            .result_title {
-                margin: 40px 0;
-            }
-
-            .result_value {
-                font-weight: bold;
-                font-size: 70px;
-                color: rgb(168, 168, 0);
-            }
-        </style>
-    </head>
-    <body>
-        <div id="main_wrap">
-            <div id="explain">
-                <h1>두 양수를 입력 후 원하는 버튼을 눌러주세요.</h1>
-                <p>나누기의 경우 소수점은 제외됩니다.</p>
-            </div>
-            <div id="inputs">
-                <input type="number" id="input1" placeholder="예) 2" required />
-                <input type="number" id="input2" placeholder="예) 4" required />
-            </div>
-            <div id="buttons">
-                <button class="plus_btn">더하기</button>
-                <button class="minus_btn">빼기</button>
-                <button class="multi_btn">곱하기</button>
-                <button class="devi_btn">나누기</button>
-            </div>
-            <div id="results">
-                <h4 class="result_title">결과값은</h4>
-                <p><span class="result_value"></span> 입니다!</p>
-            </div>
-            <footer>
-                e 그린원격평생교육원 22100196 최혜선 인터넷프로그래밍 과제
-            </footer>
-        </div>
-        <script>
-            // 인풋
-            const input1 = document.getElementById('input1');
-            const input2 = document.getElementById('input2');
-            // 버튼
-            const plusBtn = document.querySelector('.plus_btn');
-            const minusBtn = document.querySelector('.minus_btn');
-            const multiBtn = document.querySelector('.multi_btn');
-            const deviBtn = document.querySelector('.devi_btn');
-            // 결과값
-            const results = document.getElementById('results');
-            const resultValue = document.querySelector('.result_value');
-
-            // 이벤트 핸들 함수
-
-            function displayResults() {
-                setTimeout(() => {
-                    results.style.display = 'flex';
-                }, 1200);
-            }
-
-            function painting(value) {
-                resultValue.innerText = value;
-            }
-            function handlePlusBtn() {
-                results.style.display = 'none';
-                const input1Value = Number(input1.value);
-                const input2Value = Number(input2.value);
-                console.log(input1Value, input2Value);
-                if (input1Value !== 0 && input2Value !== 0) {
-                    const plusResult = input1Value + input2Value;
-                    painting(plusResult);
-                    displayResults();
-                } else {
-                    alert('숫자를 잘 넣었는지 확인해보세요!');
-                }
-            }
-
-            function handleMinusBtn() {
-                results.style.display = 'none';
-                const input1Value = Number(input1.value);
-                const input2Value = Number(input2.value);
-
-                if (input1Value !== 0 && input2Value !== 0) {
-                    const minusResult = input1Value - input2Value;
-                    painting(minusResult);
-                    displayResults();
-                } else {
-                    alert('숫자를 잘 넣었는지 확인해보세요!');
-                }
-            }
-
-            function handleMultiBtn() {
-                results.style.display = 'none';
-                const input1Value = Number(input1.value);
-                const input2Value = Number(input2.value);
-
-                if (input1Value !== 0 && input2Value !== 0) {
-                    const multiResult = input1Value * input2Value;
-                    painting(multiResult);
-                    displayResults();
-                } else {
-                    alert('숫자를 잘 넣었는지 확인해보세요!');
-                }
-            }
-
-            function handleDeviBtn() {
-                results.style.display = 'none';
-                const input1Value = Number(input1.value);
-                const input2Value = Number(input2.value);
-
-                if (input1Value !== 0 && input2Value !== 0) {
-                    const deviResult = Math.floor(input1Value / input2Value);
-                    painting(deviResult);
-                    displayResults();
-                } else {
-                    alert('숫자를 잘 넣었는지 확인해보세요!');
-                }
-            }
-
-            // 이벤트
-            plusBtn.addEventListener('click', handlePlusBtn);
-            minusBtn.addEventListener('click', handleMinusBtn);
-            multiBtn.addEventListener('click', handleMultiBtn);
-            deviBtn.addEventListener('click', handleDeviBtn);
-        </script>
-    </body>
+      // 이벤트
+      plusBtn.addEventListener("click", handlePlusBtn);
+      minusBtn.addEventListener("click", handleMinusBtn);
+      multiBtn.addEventListener("click", handleMultiBtn);
+      deviBtn.addEventListener("click", handleDeviBtn);
+    </script>
+  </body>
 </html>
