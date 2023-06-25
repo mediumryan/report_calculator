@@ -3,15 +3,17 @@
   --font-size-large: 70px;
   --font-size-small: 24px;
   /* color */
-  --color-primary-1: rgb(255, 255, 86);
-  --color-primary-2: rgb(255, 255, 151);
+  --color-primary-1: rgb(210, 210, 39);
+  --color-primary-2: rgb(218, 218, 120);
   --color-primary-3: rgb(168, 62, 0);
   --color-bg-1: #000;
-  --color-bg-2: #888;
-  --color-font: #eee;
+  --color-bg-2: #262626;
+  --color-font: #a0a0a0;
   /* margin */
   --margin-medium: 40px;
   --margin-small: 20px;
+  /* padding */
+  --padding-medium: 40px;
   /* font-family */
   --main-font: "GmarketSansMedium";
 }
@@ -78,11 +80,12 @@ footer {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  background-color: var(--color-bg-2);
 }
 
 #explain h1 {
   color: var(--color-primary-2);
-  margin: var(--margin-medium) 0;
+  padding: var(--padding-medium) 0;
 }
 
 #explain p {
@@ -111,7 +114,7 @@ footer {
   align-items: center;
   font-size: var(--font-size-small);
   border-radius: 8px;
-  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+  box-shadow: 12px 12px 2px 1px rgba(227, 227, 255, 0.2);
 }
 
 .result_title {

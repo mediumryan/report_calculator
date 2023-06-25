@@ -29,91 +29,11 @@
       </div>
       <footer>Simple Calculator app by Ryan</footer>
     </div>
-    <script>
-      // 인풋
-      const input1 = document.getElementById("input1");
-      const input2 = document.getElementById("input2");
-      // 버튼
-      const plusBtn = document.querySelector(".plus_btn");
-      const minusBtn = document.querySelector(".minus_btn");
-      const multiBtn = document.querySelector(".multi_btn");
-      const deviBtn = document.querySelector(".devi_btn");
-      // 결과값
-      const results = document.getElementById("results");
-      const resultValue = document.querySelector(".result_value");
-
-      // 이벤트 핸들 함수
-
-      function displayResults() {
-        setTimeout(() => {
-          results.style.display = "flex";
-        }, 1200);
-      }
-
-      function painting(value) {
-        resultValue.innerText = value;
-      }
-      function handlePlusBtn() {
-        results.style.display = "none";
-        const input1Value = Number(input1.value);
-        const input2Value = Number(input2.value);
-        console.log(input1Value, input2Value);
-        if (input1Value !== 0 && input2Value !== 0) {
-          const plusResult = input1Value + input2Value;
-          painting(plusResult);
-          displayResults();
-        } else {
-          alert("숫자를 잘 넣었는지 확인해보세요!");
-        }
-      }
-
-      function handleMinusBtn() {
-        results.style.display = "none";
-        const input1Value = Number(input1.value);
-        const input2Value = Number(input2.value);
-
-        if (input1Value !== 0 && input2Value !== 0) {
-          const minusResult = input1Value - input2Value;
-          painting(minusResult);
-          displayResults();
-        } else {
-          alert("숫자를 잘 넣었는지 확인해보세요!");
-        }
-      }
-
-      function handleMultiBtn() {
-        results.style.display = "none";
-        const input1Value = Number(input1.value);
-        const input2Value = Number(input2.value);
-
-        if (input1Value !== 0 && input2Value !== 0) {
-          const multiResult = input1Value * input2Value;
-          painting(multiResult);
-          displayResults();
-        } else {
-          alert("숫자를 잘 넣었는지 확인해보세요!");
-        }
-      }
-
-      function handleDeviBtn() {
-        results.style.display = "none";
-        const input1Value = Number(input1.value);
-        const input2Value = Number(input2.value);
-
-        if (input1Value !== 0 && input2Value !== 0) {
-          const deviResult = Math.floor(input1Value / input2Value);
-          painting(deviResult);
-          displayResults();
-        } else {
-          alert("숫자를 잘 넣었는지 확인해보세요!");
-        }
-      }
-
-      // 이벤트
-      plusBtn.addEventListener("click", handlePlusBtn);
-      minusBtn.addEventListener("click", handleMinusBtn);
-      multiBtn.addEventListener("click", handleMultiBtn);
-      deviBtn.addEventListener("click", handleDeviBtn);
-    </script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js"></script>
   </body>
 </html>
