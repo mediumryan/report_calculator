@@ -32,7 +32,7 @@ $(function () {
       painting(plusResult);
       displayResults();
     } else {
-      alert("숫자를 잘 넣었는지 확인해보세요!");
+      alert("数字を正しく入力したか確認してください！");
     }
   }
 
@@ -46,7 +46,7 @@ $(function () {
       painting(minusResult);
       displayResults();
     } else {
-      alert("숫자를 잘 넣었는지 확인해보세요!");
+      alert("数字を正しく入力したか確認してください！");
     }
   }
 
@@ -60,7 +60,7 @@ $(function () {
       painting(multiResult);
       displayResults();
     } else {
-      alert("숫자를 잘 넣었는지 확인해보세요!");
+      alert("数字を正しく入力したか確認してください！");
     }
   }
 
@@ -74,7 +74,7 @@ $(function () {
       painting(deviResult);
       displayResults();
     } else {
-      alert("숫자를 잘 넣었는지 확인해보세요!");
+      alert("数字を正しく入力したか確認してください！");
     }
   }
 
