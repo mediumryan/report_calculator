@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simple Calculator app</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <div id="main_wrap">
@@ -18,10 +25,10 @@
         <input type="number" id="input2" placeholder="예) 4" required />
       </div>
       <div id="buttons">
-        <button class="plus_btn">더하기</button>
-        <button class="minus_btn">빼기</button>
-        <button class="multi_btn">곱하기</button>
-        <button class="devi_btn">나누기</button>
+        <button class="plus_btn"><i class="fa-solid fa-plus"></i></button>
+        <button class="minus_btn"><i class="fa-solid fa-minus"></i></button>
+        <button class="multi_btn"><i class="fa-solid fa-xmark"></i></button>
+        <button class="devi_btn"><i class="fa-solid fa-divide"></i></button>
       </div>
       <div id="results">
         <h4 class="result_title">결과값은</h4>
