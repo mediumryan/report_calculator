@@ -1,148 +1,153 @@
 :root {
-  /* font-size */
-  --font-size-large: 70px;
-  --font-size-small: 24px;
-  /* color */
-  --color-primary-1: rgb(210, 210, 39);
-  --color-primary-2: rgb(218, 218, 120);
-  --color-primary-3: rgb(168, 62, 0);
-  --color-bg-1: #000;
-  --color-bg-2: #262626;
-  --color-font: #a0a0a0;
-  /* margin */
-  --margin-medium: 40px;
-  --margin-small: 20px;
-  /* padding */
-  --padding-medium: 40px;
-  /* font-family */
-  --main-font: "GmarketSansMedium";
+    /* font-size */
+    --font-size-large: 70px;
+    --font-size-small: 24px;
+    /* color */
+    --color-primary-1: rgb(210, 210, 39);
+    --color-primary-2: rgb(218, 218, 120);
+    --color-primary-3: rgb(168, 62, 0);
+    --color-bg-1: #000;
+    --color-bg-2: #262626;
+    --color-font: #a0a0a0;
+    /* margin */
+    --margin-medium: 40px;
+    --margin-small: 20px;
+    /* padding */
+    --padding-medium: 40px;
+    /* font-family */
+    --main-font: 'GmarketSansMedium';
 }
 
 @font-face {
-  font-family: "GmarketSansMedium";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
-    format("woff");
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff')
+        format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: var(--main-font);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--main-font);
 }
 
 button,
 input {
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
 }
 
 input {
-  background-color: var(--color-primary-2);
-  width: 120px;
-  height: 80px;
-  font-size: var(--font-size-small);
-  padding: 8px 12px;
-  margin: 8px 12px;
-  text-align: center;
+    background-color: var(--color-primary-2);
+    width: 120px;
+    height: 80px;
+    font-size: var(--font-size-small);
+    padding: 8px 12px;
+    margin: 8px 12px;
+    text-align: center;
 }
 
 button {
-  background-color: var(--color-primary-2);
-  width: 20%;
-  height: 80px;
-  font-size: var(--font-size-small);
-  padding: 8px 12px;
-  margin: 8px 12px;
-  color: var(--color-font);
-  transition: 300ms transform;
+    background-color: var(--color-primary-2);
+    width: 20%;
+    height: 80px;
+    font-size: var(--font-size-small);
+    padding: 8px 12px;
+    margin: 8px 12px;
+    color: var(--color-font);
+    transition: 300ms transform;
 }
 
 button:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 footer {
-  position: fixed;
-  bottom: 1rem;
-  left: 1rem;
-  cursor: default;
-  text-align: center;
-  opacity: 0.5;
+    color: var(--color-font);
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    cursor: default;
+    text-align: center;
+    opacity: 0.5;
 }
 
 #main_wrap {
-  width: 100%;
-  height: 100vh;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  background-color: var(--color-bg-2);
+    width: 100%;
+    height: 120vh;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: var(--color-bg-2);
 }
 
 #explain h1 {
-  color: var(--color-primary-2);
-  padding: var(--padding-medium) 0;
+    color: var(--color-primary-2);
+    padding: var(--padding-medium) 0;
 }
 
 #explain p {
-  color: var(--color-primary-3);
-  margin: var(--margin-small) 0;
+    color: var(--color-primary-3);
+    margin: var(--margin-small) 0;
 }
 
 #inputs {
-  margin: var(--margin-medium) 0;
+    margin: var(--margin-medium) 0;
 }
 
 #buttons {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #results {
-  background-color: var(--color-font);
-  margin: var(--margin-small) auto;
-  width: 85%;
-  height: 250px;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  font-size: var(--font-size-small);
-  border-radius: 8px;
-  box-shadow: 12px 12px 2px 1px rgba(227, 227, 255, 0.2);
+    background-color: var(--color-font);
+    margin: var(--margin-small) auto;
+    width: 85%;
+    height: 250px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    font-size: var(--font-size-small);
+    border-radius: 8px;
+    box-shadow: 12px 12px 2px 1px rgba(227, 227, 255, 0.2);
 }
 
 .result_title {
-  margin: 40px 0;
+    margin: 40px 0;
 }
 
 .result_value {
-  font-weight: bold;
-  font-size: var(--font-size-large);
-  color: var(--color-primary-2);
+    font-weight: bold;
+    font-size: var(--font-size-large);
+    color: var(--color-primary-2);
 }
 
 /* 미디어 쿼리 */
 
 @media only screen and (max-width: 413px) {
-  :root {
-    /* font-size */
-    --font-size-large: 48px;
-    --font-size-small: 18px;
-  }
-  #main_wrap {
-    padding: 12px 24px;
-  }
-  #buttons {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  button {
-    width: 33%;
-  }
+    :root {
+        /* font-size */
+        --font-size-large: 48px;
+        --font-size-small: 18px;
+    }
+    #main_wrap {
+        padding: 12px 24px;
+    }
+    #buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    button {
+        width: 33%;
+    }
+    #results {
+        width: 70%;
+        box-shadow: 6px 6px 2px 1px rgba(227, 227, 255, 0.2);
+    }
 }
