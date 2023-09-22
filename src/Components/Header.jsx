@@ -19,7 +19,6 @@ export default function Header() {
         <HeaderWrapper>
             <h1>Simple Calculator</h1>
             <p>두 양수를 입력 후 원하는 버튼을 눌러주세요.</p>
-            <p>나누기의 경우 소수점은 제외됩니다.</p>
         </HeaderWrapper>
     );
 }

@@ -14,3 +14,8 @@ export const resultValue = atom({
     key: 'result_value',
     default: 0,
 });
+
+export const resultVisible = atom({
+    key: 'result_visible',
+    default: false,
+});
