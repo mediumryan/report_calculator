@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/report_calculator/static/css/main.78cb84c5.css",
+    "main.js": "/report_calculator/static/js/main.57cd0e52.js",
+    "index.html": "/report_calculator/index.html",
+    "main.78cb84c5.css.map": "/report_calculator/static/css/main.78cb84c5.css.map",
+    "main.57cd0e52.js.map": "/report_calculator/static/js/main.57cd0e52.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.78cb84c5.css",
+    "static/js/main.57cd0e52.js"
+  ]
+}
