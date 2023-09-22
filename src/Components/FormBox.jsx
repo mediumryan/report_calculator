@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
-import { FaDivide, FaMinus, FaPlus } from 'react-icons/fa';
-import { MdCancel } from 'react-icons/md';
+import { FaDivide, FaMinus, FaPlus, FaTimes } from 'react-icons/fa';
+import { useRecoilState } from 'recoil';
+import { input1Value, input2Value } from '../atom';
 
 const FormWrapper = styled.form`
     display: flex;
@@ -45,25 +46,67 @@ const Button = styled.button`
 `;
 
 export default function FormBox() {
+    const [input1, setInput1] = useRecoilState(input1Value);
+    const [input2, setInput2] = useRecoilState(input2Value);
+    const getInput1 = (e) => {
+        setInput1(e.target.value);
+    };
+    const getInput2 = (e) => {
+        setInput2(e.target.value);
+    };
+
+    const addValue = (e) => {
+        e.preventDefault();
+        const newValue = parseInt(input1) + parseInt(input2);
+        console.log(newValue);
+    };
+    const subtractValue = (e) => {
+        e.preventDefault();
+        const newValue = parseInt(input1) - parseInt(input2);
+        console.log(newValue);
+    };
+    const multiplyValue = (e) => {
+        e.preventDefault();
+        const newValue = parseInt(input1) * parseInt(input2);
+        console.log(newValue);
+    };
+    const divideValue = (e) => {
+        e.preventDefault();
+        const newValue = (parseInt(input1) / parseInt(input2)).toFixed(2);
+        console.log(newValue);
+    };
+
+    console.log(input1, input2);
+
     return (
         <FormWrapper>
             <InputBox>
                 <Label htmlFor="input1">입력 1 : </Label>
-                <Input type="number" id="input1" placeholder="ex) 2" required />
+                <Input
+                    onChange={getInput1}
+                    type="number"
+                    id="input1"
+                    placeholder="ex) 2"
+                />
                 <Label htmlFor="input2">입력 2 : </Label>
-                <Input type="number" id="input2" placeholder="ex) 4" required />
+                <Input
+                    onChange={getInput2}
+                    type="number"
+                    id="input2"
+                    placeholder="ex) 4"
+                />
             </InputBox>
             <ButtonBox>
-                <Button>
+                <Button type="submit" onClick={addValue}>
                     <FaPlus />
                 </Button>
-                <Button>
+                <Button type="submit" onClick={subtractValue}>
                     <FaMinus />
                 </Button>
-                <Button>
-                    <MdCancel />
+                <Button type="submit" onClick={multiplyValue}>
+                    <FaTimes />
                 </Button>
-                <Button>
+                <Button type="submit" onClick={divideValue}>
                     <FaDivide />
                 </Button>
             </ButtonBox>
