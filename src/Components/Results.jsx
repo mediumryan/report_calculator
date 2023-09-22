@@ -5,22 +5,26 @@ import { styled } from 'styled-components';
 import { motion } from 'framer-motion';
 
 const ResultWrapper = styled(motion.div)`
-    width: 250px;
-    height: 200px;
+    width: 400px;
+    height: 150px;
     background-color: var(--bg-200);
-    margin-top: var(--margin-large);
+    margin-top: var(--margin-very-large);
     padding: var(--padding-medium);
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-medium-large);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    box-shadow: var(--accent-100) 2px 2px 4px 2px;
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        width: 250px;
+    }
 `;
 
 const ResultValue = styled.p`
     span {
-        font-size: var(--font-size-medium);
+        font-size: var(--font-size-huge);
         font-weight: 800;
         color: var(--primary-100);
     }

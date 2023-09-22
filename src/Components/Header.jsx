@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 
 const HeaderWrapper = styled.header`
     text-align: center;
+    margin-top: 15%;
     margin-bottom: var(--margin-very-large);
     h1 {
         color: var(--accent-100);

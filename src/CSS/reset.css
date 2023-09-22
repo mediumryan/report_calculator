@@ -130,6 +130,9 @@ table {
 * {
     box-sizing: border-box;
 }
+input {
+    border: none;
+}
 button {
     outline: none;
     background: none;
