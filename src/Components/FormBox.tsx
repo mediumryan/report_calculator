@@ -59,51 +59,62 @@ const Button = styled.button`
 `;
 
 export default function FormBox() {
-    const [input1, setInput1] = useRecoilState(input1Value);
-    const [input2, setInput2] = useRecoilState(input2Value);
+    //state
+    const [input1, setInput1] = useRecoilState<number>(input1Value);
+    const [input2, setInput2] = useRecoilState<number>(input2Value);
     const setResult = useSetRecoilState(resultValue);
     const setVisible = useSetRecoilState(resultVisible);
-    const getInput1 = (e) => {
-        setInput1(e.target.value);
-    };
-    const getInput2 = (e) => {
-        setInput2(e.target.value);
+    const getInput1 = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setInput1(Number(e.target.value));
     };
 
-    const handleOperation = (operator) => (e) => {
-        e.preventDefault();
-        if (input1 === 0 && input2 === 0) {
-            alert('입력란에 숫자를 입력해 주세요.');
-            return;
-        }
-        let newValue = 0;
-
-        switch (operator) {
-            case 'add':
-                newValue = parseInt(input1) + parseInt(input2);
-                break;
-            case 'subtract':
-                newValue = parseInt(input1) - parseInt(input2);
-                break;
-            case 'multiply':
-                newValue = parseInt(input1) * parseInt(input2);
-                break;
-            case 'divide':
-                newValue = (parseInt(input1) / parseInt(input2)).toFixed(2);
-                break;
-            default:
-                newValue = 0;
-                break;
-        }
-
-        setResult(newValue);
-        setInput1(0);
-        setInput2(0);
-        setVisible(false);
-        setTimeout(() => {
-            setVisible(true);
-        }, 1000);
+    const getInput2 = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setInput2(Number(e.target.value));
     };
+    //function
+    const handleOperation =
+        (operator: string) =>
+        (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+            e.preventDefault();
+
+            if (input1 === 0 && input2 === 0) {
+                alert('입력란에 숫자를 입력해 주세요.');
+                return;
+            }
+
+            let newValue: number = 0;
+
+            const num1 = Number(input1);
+            const num2 = Number(input2);
+
+            switch (operator) {
+                case 'add':
+                    newValue = num1 + num2;
+                    break;
+                case 'subtract':
+                    newValue = num1 - num2;
+                    break;
+                case 'multiply':
+                    newValue = num1 * num2;
+                    break;
+                case 'divide':
+                    newValue = num1 / num2;
+                    break;
+                default:
+                    newValue = 0;
+                    break;
+            }
+
+            setResult(newValue);
+            setInput1(0);
+            setInput2(0);
+            setVisible(false);
+
+            setTimeout(() => {
+                setVisible(true);
+            }, 1000);
+        };
+
     return (
         <FormWrapper>
             <InputBox>
@@ -129,16 +140,16 @@ export default function FormBox() {
                 </div>
             </InputBox>
             <ButtonBox>
-                <Button type="submit" onClick={handleOperation('add')}>
+                <Button type="button" onClick={handleOperation('add')}>
                     <FaPlus />
                 </Button>
-                <Button type="submit" onClick={handleOperation('subtract')}>
+                <Button type="button" onClick={handleOperation('subtract')}>
                     <FaMinus />
                 </Button>
-                <Button type="submit" onClick={handleOperation('multiply')}>
+                <Button type="button" onClick={handleOperation('multiply')}>
                     <FaTimes />
                 </Button>
-                <Button type="submit" onClick={handleOperation('divide')}>
+                <Button type="button" onClick={handleOperation('divide')}>
                     <FaDivide />
                 </Button>
             </ButtonBox>
